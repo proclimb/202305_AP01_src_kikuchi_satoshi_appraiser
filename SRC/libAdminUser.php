@@ -8,12 +8,16 @@ function subAdminUser()
 
 	subMenu();
 ?>
+	<!-- 7/19日 ユーザー情報_仕様書_NO42の２による修正 -->
+	<script type="text/javascript" src="./js/adminUser.js"></script>
+
 	<h1>ユーザー情報画面</h1>
 
 	<form name="form" id="form" action="index.php" method="post">
 		<input type="hidden" name="act" value="adminUser" />
 		<input type="hidden" name="userNo" />
 
+		<!-- 以下のaタグは新規登録ボタン -->
 		<a href="javascript:form.act.value='adminUserEdit';form.submit();"><img src="./images/btn_enter.png"></a><br />
 
 		<div class="list">
