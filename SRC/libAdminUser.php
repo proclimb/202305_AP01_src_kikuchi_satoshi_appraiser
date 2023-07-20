@@ -46,9 +46,12 @@ function subAdminUser()
 						<td class="list_td<?php print $i; ?>"><?php print $id; ?></td>
 						<td class="list_td<?php print $i; ?>"><?php print $password; ?></td>
 						<td class="list_td<?php print $i; ?>"><?php print fnAuthorityName($authority); ?></td>
-						<td class="list_td<?php print $i; ?>">
-							<a href="javascript:fnAdminUserDeleteCheck(<?php print $userNo; ?>,'<?php print $name; ?>');">削除</a>
-						</td>
+						<!-- 7/20日 ユーザー情報_仕様書_NO13による修正:if文を追加-->
+						<?php if ($userNo > 1) { ?>
+							<td class="list_td<?php print $i; ?>">
+								<a href="javascript:fnAdminUserDeleteCheck(<?php print $userNo; ?>,'<?php print $name; ?>');">削除</a>
+							</td>
+						<?php } ?>
 					</tr>
 				<?php
 					$i = ($i + 1) % 2;
