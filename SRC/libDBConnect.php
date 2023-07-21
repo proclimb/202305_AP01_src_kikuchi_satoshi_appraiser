@@ -87,8 +87,8 @@ function fnSqlAdminUserDelete($userNo)
 function fnNextNo($t)
 {
     $conn = fnDbConnect();
-
-    $sql = "SELECT MAX(".$t."NO) FROM TBL".$t;
+    //<!-- 7/20日 ユーザー情報_仕様書_NO109～による修正 -->
+    $sql = "SELECT MAX(" . $t . "NO) +1 FROM TBL" . $t;
     $res = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($res);
     if ($row[0]) {
@@ -98,4 +98,5 @@ function fnNextNo($t)
     }
 
     return ($max);
+    var_dump($row[0]);
 }
