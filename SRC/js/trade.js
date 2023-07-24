@@ -3,7 +3,8 @@
 //
 function fnTradeEditCheck() {
 	tmp = form.name.value;
-	if (tmp.length < 0) {
+	//<!-- 7/24日 業者管理_仕様書_NO178による修正 -->
+	if (tmp.length == 0) {
 		alert('業者名を入力してください');
 		return;
 	}
@@ -12,7 +13,8 @@ function fnTradeEditCheck() {
 		return;
 	}
 
-	tmp = form.nameYomi.value;
+	//<!-- 7/24日 業者管理_仕様書_NO178による修正 -->
+	tmp = form.nameFuri.value;
 	if (tmp.length > 100) {
 		alert('業者名（よみ）は100文字以内で入力してください');
 		return;
@@ -31,13 +33,15 @@ function fnTradeEditCheck() {
 	}
 
 	tmp = form.zip.value;
-	if (tmp.length > 0 && !tmp.match(/^\d{3}(\s*|-)\d{4}$/)) {
+	//<!-- 7/24日 業者管理_仕様書_NO178による修正 -->
+	if (tmp.length > 0 && !tmp.match(/(^\d{3}(-)\d{4}$)|(d{7})/)) {
 		alert("正しい郵便番号(***-**** 又は ******* )で\n入力してください");
 		return;
 	}
 
 	tmp = form.prefecture.value;
-	if (tmp.length >= 10) {
+	//<!-- 7/24日 業者管理_仕様書_NO178による修正 -->
+	if (tmp.length > 10) {
 		alert('住所（都道府県）は10文字以内で入力してください');
 		return;
 	}
@@ -73,7 +77,8 @@ function fnTradeEditCheck() {
 	}
 
 	if (confirm('この内容で登録します。よろしいですか？')) {
-		form.act.value = 'tradeEditCompleta';
+		//<!-- 7/24日 業者管理_仕様書_NO178による修正 -->
+		form.act.value = 'tradeEditComplete';
 		form.submit();
 	}
 }
