@@ -42,11 +42,12 @@ function fnSqlAdminUserEdit($userNo)
 //
 function fnSqlAdminUserUpdate($userNo, $name, $id, $password, $authority)
 {
-    $pass = addslashes(hash('adler32', $password));
+    //<!-- 7/24日 ユーザー情報_仕様書_NO31～による修正 -->
+    //$pass = addslashes(hash('adler32', $password));
     $sql = "UPDATE TBLUSER";
     $sql .= " SET NAME = '$name'";
     $sql .= ",ID = '$id'";
-    $sql .= ",PASSWORD = '$pass'";
+    $sql .= ",PASSWORD = '$password'";
     $sql .= ",AUTHORITY = '$authority'";
     $sql .= ",UPDT = CURRENT_TIMESTAMP";
     $sql .= " WHERE USERNO = '$userNo'";
@@ -59,11 +60,12 @@ function fnSqlAdminUserUpdate($userNo, $name, $id, $password, $authority)
 //
 function fnSqlAdminUserInsert($userNo, $name, $id, $password, $authority)
 {
-    $pass = addslashes(hash('adler32', $password));
+     //<!-- 7/24日 ユーザー情報_仕様書_NO31～による修正 -->
+    //$pass = addslashes(hash('adler32', $password));
     $sql = "INSERT INTO TBLUSER(";
     $sql .= "USERNO,NAME,ID,PASSWORD,AUTHORITY,INSDT,UPDT,DEL";
     $sql .= ")VALUES(";
-    $sql .= "'$userNo','$name','$id','$pass','$authority',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,1)";
+    $sql .= "'$userNo','$name','$id','$password','$authority',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,1)";
 
     return ($sql);
 }
