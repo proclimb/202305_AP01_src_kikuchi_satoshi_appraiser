@@ -52,7 +52,8 @@ function subArticle()
 			<table border="0" cellpadding="2" cellspacing="0">
 				<tr>
 					<th>除外</th>
-					<td><input type="checkbox" name="sDel" value="0" <?php if ($sDel == 0) print ' checked="checked"' ?> /></td>
+					<!-- 7/25日 物件管理_仕様書_NO7による修正 -->
+					<td><input type="checkbox" name="sDel" value="0" /></td>
 					<th>備考</th>
 					<td><input type="text" name="sArticleNote" value="<?php print $sArticleNote ?>" size="50" /></td>
 				</tr>
