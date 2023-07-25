@@ -297,12 +297,12 @@ function subTradeEdit()
 			</tr>
 
 		</table>
-
 		<a href="javascript:fnTradeEditCheck();"><img src="./images/<?php print $btnImage; ?>" /></a>　
 		<a href="javascript:form.act.value='tradeSearch';form.submit();"><img src="./images/btn_return.png" /></a>　
 		<?php
 		if ($tradeNo) {
 		?>
+			<!-- 7/25日 業者管理_仕様書_NO139による修正 -->
 			<a href="javascript:fnTradeDeleteCheck(<?php print $tradeNo; ?>);"><img src="./images/btn_del.png" /></a>
 		<?php
 		}
@@ -375,7 +375,9 @@ function subTradeDelete()
 {
 	$conn = fnDbConnect();
 
-	$tradeNo = $_REQUEST['tradeNo'];
+	//<!-- 7/25日 業者管理_仕様書_NO139による修正 -->
+	//$tradeNo = $_REQUEST['tradeNo'];
+	$tradeNo    = mysqli_real_escape_string($conn, $_REQUEST['tradeNo']);
 
 	$sql = fnSqlTradeDelete($tradeNo);
 	$res = mysqli_query($conn, $sql);

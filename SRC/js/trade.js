@@ -88,6 +88,8 @@ function fnTradeEditCheck() {
 function fnTradeDeleteCheck(no) {
 	if (confirm('削除します。よろしいですか？')) {
 		form.tradeNo.value = no;
+		//<!-- 7/25日 業者管理_仕様書_NO139による修正 -->
+		form.act.value = 'tradeDelete';
 		form.submit();
 	}
 }
