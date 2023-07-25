@@ -88,6 +88,8 @@ function fnSqlTradeUpdate($tradeNo, $name, $nameFuri, $branch, $branchFuri, $zip
 	$sql .= ",MOBILE = '$mobile'";
 	$sql .= ",INTERIOR = '$interior'";
 	$sql .= ",DEL = '$del'";
+	//<!-- 7/25日 業者管理_仕様書_NO138による修正 -->
+	$sql .= ",UPDT = CURRENT_TIMESTAMP";
 	$sql .= " WHERE TRADENO = $tradeNo";
 
 	return ($sql);
