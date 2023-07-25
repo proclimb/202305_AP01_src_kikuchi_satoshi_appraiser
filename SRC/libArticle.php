@@ -189,7 +189,8 @@ function subArticleEdit()
 		$btnImage = 'btn_enter.png';
 	}
 
-	subMenu2();
+	//<!-- 7/25日 物件管理_仕様書_NO7による修正 -->
+	subMenu();
 ?>
 	<script type="text/javascript" src="./js/article.js"></script>
 
