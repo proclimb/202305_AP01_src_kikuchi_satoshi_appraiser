@@ -61,19 +61,21 @@ function subArticle()
 				<tr>
 					<th>物件名</th>
 					<!-- 7/26日 物件管理_仕様書_NO116～NO123ほか による修正 -->
-					<td><input type="text" name="sArticle" value="<?php print $sRoom ?>" size="50" /></td>
+					<!-- 7/26日 物件管理_仕様書_NO111ほか による修正 -->
+					<td><input type="text" name="sArticle" value="<?php print $sArticle ?>" size="50" /></td>
 					<th>キーBox番号</th>
 					<td><input type="text" name="sKeyBox" value="<?php print $sKeyBox ?>" size="30" /></td>
 				</tr>
 				<tr>
 					<th>部屋番号</th>
-					<td><input type="text" name="sRoom" value="" size="30" /><?php print $sArticle ?></td>
+					<!-- 7/26日 物件管理_仕様書_NO111ほか による修正 -->
+					<td><input type="text" name="sRoom" value="" size="30" /><?php print $sRoom ?></td>
 					<th>3Dパース</th>
 					<td><input type="text" name="sDrawing" value="<?php print $sDrawing ?>" size="30" /></td>
 				</tr>
 				<tr>
 					<th>鍵場所</th>
-					<!-- 7/26日 パースエラーを修正 -->
+					<!-- 7/26日 物件管理_仕様書_NO116～NO123ほか による修正 -->
 					<td><input type="text" name="sKeyPlace" value="<?php print $sKeyPlace ?>" size="30" /></td>
 					<th>営業担当者</th>
 					<td><input type="text" name="sSellCharge" value="<?php print $sSellCharge ?>" /></td>
@@ -90,7 +92,7 @@ function subArticle()
 		return;
 	}
 	$sql = fnSqlArticleList(0, $sDel, $sArticle, $sRoom, $sKeyPlace, $sArticleNote, $sKeyBox, $sDrawing, $sSellCharge, $sPage, $orderBy, $orderTo);
-	//<!-- 7/26日 パースエラーを修正 -->
+	//<!-- 7/26日 物件管理_仕様書_NO116～NO123ほか による修正 -->
 	$res = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($res);
 
@@ -127,7 +129,7 @@ function subArticle()
 				$sellCharge  = $row["SELLCHARGE"];
 			?>
 				<tr>
-					<!-- 7/26日 パースエラーを修正 -->
+					<!-- 7/26日 物件管理_仕様書_NO116～NO123ほか による修正 -->
 					<td class="list_td<?php print $i ?>"><a href="javascript:form.act.value='articleEdit';form.articleNo.value='<?php print $articleNo ?>';form.submit();"><?php print $article ?></a></td>
 					<td class="list_td<?php print $i ?>"><?php print $room ?></td>
 					<td class="list_td<?php print $i ?>"><?php print $drawing ?></td>
