@@ -23,8 +23,9 @@ function subArticle()
 		$sDel = 1;
 	}
 
+	//<!-- 7/26日 物件管理_仕様書_NO116～NO123ほか による修正 -->
 	if (!$sPage) {
-		$sPage = l;
+		$sPage = 1;
 	}
 
 	if (!$orderBy) {
@@ -59,7 +60,8 @@ function subArticle()
 				</tr>
 				<tr>
 					<th>物件名</th>
-					<td><input type="text" name="sArticle" value="<?php print $sRooms ?>" size="50" /></td>
+					<!-- 7/26日 物件管理_仕様書_NO116～NO123ほか による修正 -->
+					<td><input type="text" name="sArticle" value="<?php print $sRoom ?>" size="50" /></td>
 					<th>キーBox番号</th>
 					<td><input type="text" name="sKeyBox" value="<?php print $sKeyBox ?>" size="30" /></td>
 				</tr>
@@ -71,7 +73,8 @@ function subArticle()
 				</tr>
 				<tr>
 					<th>鍵場所</th>
-					<td><input type="text" name="sKeyPlace" value="<?php print $sKagPlace ?>" size="30" /></td>
+					<!-- 7/26日 パースエラーを修正 -->
+					<td><input type="text" name="sKeyPlace" value="<?php print $sKeyPlace ?>" size="30" /></td>
 					<th>営業担当者</th>
 					<td><input type="text" name="sSellCharge" value="<?php print $sSellCharge ?>" /></td>
 				</tr>
@@ -87,8 +90,9 @@ function subArticle()
 		return;
 	}
 	$sql = fnSqlArticleList(0, $sDel, $sArticle, $sRoom, $sKeyPlace, $sArticleNote, $sKeyBox, $sDrawing, $sSellCharge, $sPage, $orderBy, $orderTo);
-	$res = mysql_query($sql);
-	$row = mysql_fetch_array($res);
+	//<!-- 7/26日 パースエラーを修正 -->
+	$res = mysqli_query($conn, $sql);
+	$row = mysqli_fetch_array($res);
 
 	$count = $row[0];
 
@@ -123,7 +127,8 @@ function subArticle()
 				$sellCharge  = $row["SELLCHARGE"];
 			?>
 				<tr>
-					<td class="list_td<?php print $i ?>"><a href="javascript:form.act.value='articleEdit';form.articleNo.value='<?php print $rrticleNo ?>';form.submit();"><?php print $article ?></a></td>
+					<!-- 7/26日 パースエラーを修正 -->
+					<td class="list_td<?php print $i ?>"><a href="javascript:form.act.value='articleEdit';form.articleNo.value='<?php print $articleNo ?>';form.submit();"><?php print $article ?></a></td>
 					<td class="list_td<?php print $i ?>"><?php print $room ?></td>
 					<td class="list_td<?php print $i ?>"><?php print $drawing ?></td>
 					<td class="list_td<?php print $i ?>"><?php print $keyPlace ?></td>
@@ -261,16 +266,20 @@ function subArticleEdit()
 			</tr>
 		</table>
 
-		<a href="javascript:fnArticleEditCheck();"><img src="./images/<?php print $btnImage ?>" /></a>　
-		<a href="javascript:form.act.value='fManager';form.submit();"><img src="./images/btn_return.png" /></a>
-		&nbsp;&nbsp;<a href="javascript:fnArticleDeleteCheck(<?php print $articleNo ?>);"><img src="./images/btn_del.png" /></a>
+		<a href="javascript:fnArticleEditCheck();"><img src="./images/<?php print $btnImage ?>" /></a>
+		<!-- 7/26日 物件管理_仕様書_NO98による修正 -->
+		<a href="javascript:form.act.value='articleSearch';form.submit();"><img src="./images/btn_return.png" /></a>
+		&nbsp;&nbsp;
+		<!-- 7/26日 物件管理_仕様書_NO61による修正 -->
+		<?php if ($articleNo) { ?>
+		<a href="javascript:fnArticleDeleteCheck(<?php print $articleNo ?>);"><img src="./images/btn_del.png" /></a>
+		<?php } ?>
 	</form>
+<?php } ?>
+
+
+
 <?php
-}
-
-
-
-
 //
 //物件管理編集完了処理
 //
@@ -320,10 +329,10 @@ function subArticleEditComplete()
 	$_REQUEST['act'] = 'articleSearch';
 	subArticle();
 }
+?>
 
 
-
-
+<?php
 //
 //物件管理削除処理
 //
