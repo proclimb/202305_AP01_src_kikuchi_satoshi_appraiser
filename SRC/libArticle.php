@@ -316,11 +316,13 @@ function subArticleEditComplete()
 
 	if ($articleNo) {
 		// 編集
-		$sql = fnSqlArticleUpdate($articleNo, $article, $room, $keyPlace, $address, $articleNote, $keyBox, $drawing, $sellCharge, $del);
+		//<!-- 7/26日 物件管理_仕様書_NO111の２ による修正 -->・・見込みで修正
+		$sql = fnSqlArticleUpdate($articleNo, $article, $room, $keyPlace, $address, $articleNote, $keyBox, $sellCharge, $del, $drawing);
 		$res = mysqli_query($conn, $sql);
 	} else {
 		// 新規登録
-		$sql = fnSqlArticleInsert(fnNextNo('ARTICLE'), $article, $room, $keyPlace, $address, $articleNote, $keyBox, $drawing, $sellCharge, $del);
+		//<!-- 7/26日 物件管理_仕様書_NO111の２ による修正 -->
+		$sql = fnSqlArticleInsert(fnNextNo('ARTICLE'), $article, $room, $keyPlace, $address, $articleNote, $keyBox, $sellCharge, $del, $drawing);
 
 		$res = mysqli_query($conn, $sql);
 
