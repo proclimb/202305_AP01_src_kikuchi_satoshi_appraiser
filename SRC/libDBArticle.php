@@ -88,7 +88,8 @@ function fnSqlArticleUpdate($articleNo, $article, $room, $keyPlace, $address, $a
 //
 function fnSqlArticleInsert($articleNo,  $keyPlace, $article, $address,  $keyBox, $articleNote, $drawing, $sellCharge, $room, $del)
 {
-	$sql  = "INSERT INTO tblarticle (";
+	//<!-- 7/26日 物件管理_仕様書_NO111ほか による修正 -->
+	$sql  = "INSERT INTO TBLARTICLE (";
 	$sql .= " ARTICLENO, ROOM, ARTICLE, KEYPLACE, ARTICLENOTE, KEYBOX, ADDRESS, DUEDT, SELLCHARGE, AREA, YEARS, SELLPRICE, INTERIORPRICE, CONSTTRADER,"
 		. " CONSTPRICE, CONSTADD, CONSTNOTE, PURCHASEDT, WORKSTARTDT, WORKENDDT, LINEOPENDT, LINECLOSEDT, RECEIVE, HOTWATER, SITEDT, LEAVINGFORM,"
 		. " LEAVINGDT, MANAGECOMPANY, FLOORPLAN, FORMEROWNER, BROKERCHARGE, BROKERCONTACT, INTERIORCHARGE, CONSTFLG1, CONSTFLG2, CONSTFLG3, CONSTFLG4, INSDT, UPDT, DEL,"
