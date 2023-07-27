@@ -69,7 +69,8 @@ function subArticle()
 				<tr>
 					<th>部屋番号</th>
 					<!-- 7/26日 物件管理_仕様書_NO111ほか による修正 -->
-					<td><input type="text" name="sRoom" value="" size="30" /><?php print $sRoom ?></td>
+					<!-- 7/27日 物件管理_仕様書_NO128 による修正 -->
+					<td><input type="text" name="sRoom" value="<?php print $sRoom ?>" size="30" /></td>
 					<th>3Dパース</th>
 					<td><input type="text" name="sDrawing" value="<?php print $sDrawing ?>" size="30" /></td>
 				</tr>
