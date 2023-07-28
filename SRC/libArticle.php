@@ -332,11 +332,14 @@ function subArticleEditComplete()
 		// 新規登録
 		//<!-- 7/26日 物件管理_仕様書_NO111の２ による修正 -->
 		$sql = fnSqlArticleInsert(fnNextNo('ARTICLE'), $article, $room, $keyPlace, $address, $articleNote, $keyBox, $sellCharge, $del, $drawing);
-
 		$res = mysqli_query($conn, $sql);
 
-		/* $sql = fnSqlFManagerInsert(fnNextNo('FM'),$article,$room,$articleNote,$del);
-		   $res = mysqli_query($conn,$sql); */
+		//<!-- 7/28日 物件管理_仕様書_NO111の３ による修正 -->
+		$name=$article;
+		$note=$articleNote;
+		$sql = fnSqlFManagerInsert(fnNextNo('FM'),$name,$room,$note,$del);
+		$res = mysqli_query($conn,$sql);
+		
 	}
 
 	$_REQUEST['act'] = 'articleSearch';
