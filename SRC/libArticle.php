@@ -48,7 +48,8 @@ function subArticle()
 		<input type="hidden" name="sPage" value="<?php print $sPage; ?>" />
 		<input type="hidden" name="articleNo" />
 		<input type="hidden" name="sName" />
-		<input type="hidden" name="sRoom" />
+		<!-- 7/28日 物件管理_仕様書_NO111の4による修正 -->
+		<!-- <input type="hidden" name="sRoom" /> -->
 
 		<a href="javascript:form.act.value='articleEdit';form.submit();"><img src="./images/btn_enter.png"></a>
 
