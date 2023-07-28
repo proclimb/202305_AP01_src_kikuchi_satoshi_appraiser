@@ -137,12 +137,12 @@ function subArticle()
 				<tr>
 					<!-- 7/26日 物件管理_仕様書_NO116～NO123ほか による修正 -->
 					<!-- 7/27日 物件管理_仕様書_NO143 による修正 -->
-					<!-- 7/27にち。memo:value='stock'のstockが使用されるはずはないので要確認・・・＞予想通りリンク先に不具合があることが判明したので、別途報告のうえ修正する必要 -->
 					<td class="list_td<?php print $i; ?>"><a href="javascript:form.act.value='articleEdit';form.articleNo.value='<?php print $articleNo; ?>';form.submit();"><?php print $article; ?></a></td>
 					<td class="list_td<?php print $i; ?>"><?php print $room; ?></td>
 					<td class="list_td<?php print $i; ?>"><?php print $keyPlace; ?></td>
 					<td class="list_td<?php print $i; ?>"><?php print $articleNote; ?></td>
-					<td class="list_td<?php print $i; ?>"><a href="javascript:form.act.value='stock';form.sName.value='<?php print $article; ?>';form.sRoom.value='<?php print $room; ?>';form.submit();">表示</a></td>
+					<!-- 7/28日 物件管理_仕様書_NO96 による修正 -->
+					<td class="list_td<?php print $i; ?>"><a href="javascript:form.act.value='fManager';form.sName.value='<?php print $article; ?>';form.sRoom.value='<?php print $room; ?>';form.submit();">表示</a></td>
 					<td class="list_td<?php print $i; ?>"><?php print $keyBox; ?></td>
 					<td class="list_td<?php print $i; ?>"><?php print $drawing; ?></td>
 					<td class="list_td<?php print $i; ?>"><?php print $sellCharge; ?></td>
