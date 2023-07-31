@@ -119,7 +119,8 @@ function fnSqlArticleInsert($articleNo, $article, $room, $keyPlace, $address, $a
 function fnSqlArticleDelete($articleNo)
 {
 	$sql  = "UPDATE TBLARTICLE";
-	$sql .= " SET DEL = 0";
+	//<!-- 7/31日 物件管理_仕様書_NO148による修正 -->
+	$sql .= " SET DEL = -1";
 	$sql .= ",UPDT = CURRENT_TIMESTAMP";
 	$sql .= " WHERE ARTICLENO = '$articleNo'";
 
