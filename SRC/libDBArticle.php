@@ -54,10 +54,11 @@ function fnSqlArticleList($flg, $sDel, $sArticle, $sRoom, $sKeyPlace, $sArticleN
 //
 function fnSqlArticleEdit($articleNo)
 {
-	//<!-- 7/27にち。memo:SELECT文中のADDRESSはいらいない？ -->
-	$sql  = "SELECT ARTICLE, ROOM, KEYPLACE, ADDRESS, ARTICLENOTE, KEYBOX, DRAWING, SELLCHARGE, DEL";
+	//<!-- 7/31日 物件管理_仕様書_NO112による修正(ここだけ並び順がほかと違うので、併せて修正) -->
+	$sql  = "SELECT ARTICLE, ROOM, KEYPLACE, ADDRESS, ARTICLENOTE, KEYBOX, SELLCHARGE, DEL, DRAWING";
 	$sql .= " FROM TBLARTICLE";
-	$sql .= " WHERE ARTICLENO = 1";
+	//<!-- 7/31日 物件管理_仕様書_NO112による修正(多分直接関係ないが、固定で１はおかしいので、併せて修正) -->
+	$sql .= " WHERE ARTICLENO = $articleNo";
 
 	return ($sql);
 }
@@ -67,18 +68,20 @@ function fnSqlArticleEdit($articleNo)
 //
 //物件管理情報更新
 //
-function fnSqlArticleUpdate($articleNo, $article, $room, $keyPlace, $address, $articleNote, $keyBox, $drawing, $sellCharge, $del)
+//<!-- 7/28日 物件管理_仕様書_NO112 による修正 -->
+function fnSqlArticleUpdate($articleNo, $article, $room, $keyPlace, $address, $articleNote, $keyBox, $sellCharge, $del, $drawing)
 {
 	$sql  = "UPDATE TBLARTICLE";
 	$sql .= " SET ARTICLE = '$article'";
 	$sql .= ",ROOM = '$room'";
 	$sql .= ",KEYPLACE = '$keyPlace'";
-	$sql .= ",ADDRESS = '$address";
+	//<!-- 7/31日 物件管理_仕様書_NO112による修正 -->
+	$sql .= ",ADDRESS = '$address'";
 	$sql .= ",ARTICLENOTE = '$articleNote'";
 	$sql .= ",KEYBOX = '$keyBox'";
-	$sql .= ",DRAWING = '$drawing'";
 	$sql .= ",SELLCHARGE = '$sellCharge'";
 	$sql .= ",DEL = '$del'";
+	$sql .= ",DRAWING = '$drawing'";
 	$sql .= " WHERE ARTICLENO = $articleNo";
 
 	return ($sql);
