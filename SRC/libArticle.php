@@ -33,7 +33,8 @@ function subArticle()
 
 	if (!$orderBy) {
 		$orderBy = 'ARTICLENO';
-		$orderTo = 'DESC';
+		//<!-- 7/31日 物件管理_仕様書_NO145 による修正 -->
+		$orderTo = 'ASC';
 	}
 
 	subMenu();
