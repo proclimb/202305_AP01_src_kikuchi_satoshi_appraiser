@@ -2,7 +2,8 @@
 //
 //工事管理リスト
 //
-function fnSqlConstList($flg, $sDel, $sArticle, $sConstTrader, $sConstFlg1, $sConstFlg2, $sConstFlg3, $sConstFlg4, $sInteriorCharge, $sPage, $orderBy, $orderTo)
+//<!-- 8/3日 工事管理_仕様書_NO138の２ による修正 -->
+function fnSqlConstList($flg, $sDel, $sArticle, $sConstTrader, $sConstFlg1, $sConstFlg2, $sConstFlg3, $sConstFlg4, $sInteriorCharge, $sPage, $orderBy, $orderTo, $sRoom, $sAddress)
 {
 	switch ($flg) {
 		case 0:

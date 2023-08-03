@@ -14,6 +14,9 @@ function subConst()
 	$sConstFlg3      = htmlspecialchars($_REQUEST['sConstFlg3']);
 	$sConstFlg4      = htmlspecialchars($_REQUEST['sConstFlg4']);
 	$sInteriorCharge = htmlspecialchars($_REQUEST['sInteriorCharge']);
+	//<!-- 8/3日 工事管理_仕様書_NO138の２ による修正 -->
+	$sRoom  	     = htmlspecialchars($_REQUEST['sRoom']);
+	$sAddress		 = htmlspecialchars($_REQUEST['sAddress']);
 
 	$orderBy = $_REQUEST['orderBy'];
 	$orderTo = $_REQUEST['orderTo'];
@@ -82,7 +85,8 @@ function subConst()
 		return;
 	}
 
-	$sql = fnSqlConstList(0, $sDel, $sArticle, $sConstTrader, $sConstFlg1, $sConstFlg2, $sConstFlg3, $sConstFlg4, $sInteriorCharge, $sPage, $orderBy, $orderTo);
+	//<!-- 8/3日 工事管理_仕様書_NO138の２ による修正 -->
+	$sql = fnSqlConstList(0, $sDel, $sArticle, $sConstTrader, $sConstFlg1, $sConstFlg2, $sConstFlg3, $sConstFlg4, $sInteriorCharge, $sPage, $orderBy, $orderTo, $sRoom, $sAddress);
 	$res = mysqli_query($conn, $sql);
 	$row  = mysqli_fetch_array($res);
 
@@ -113,7 +117,8 @@ function subConst()
 				<th class="list_head">内装担当者<?php fnOrder('INTERIORCHARGE', 'constSearch') ?></th>
 			</tr>
 			<?php
-			$sql = fnSqlConstList(1, $sDel, $sArticle, $sConstTrader, $sConstFlg1, $sConstFlg2, $sConstFlg3, $sConstFlg4, $sInteriorCharge, $sPage, $orderBy, $orderTo);
+			//<!-- 8/3日 工事管理_仕様書_NO138の２ による修正 -->
+			$sql = fnSqlConstList(1, $sDel, $sArticle, $sConstTrader, $sConstFlg1, $sConstFlg2, $sConstFlg3, $sConstFlg4, $sInteriorCharge, $sPage, $orderBy, $orderTo, $sRoom, $sAddress);
 			$res = mysqli_query($conn, $sql);
 			$i = 0;
 			while ($row = mysqli_fetch_array($res)) {
@@ -457,7 +462,7 @@ function subConstEdit()
 			</tr>
 		</table>
 
-		<a href="javascript:fnConstEditCheck();"><img src="./images/btn_load.png" /></a>　
+		<a href="javascript:fnConstEditCheck();"><img src="./images/btn_load.png" /></a>
 		<a href="javascript:form.act.value='constSearch';form.submit();"><img src="./images/btn_return.png" /></a><br />
 	</form>
 <?php
