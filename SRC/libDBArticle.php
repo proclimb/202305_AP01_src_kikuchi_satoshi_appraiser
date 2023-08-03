@@ -82,7 +82,9 @@ function fnSqlArticleUpdate($articleNo, $article, $room, $keyPlace, $address, $a
 	$sql .= ",SELLCHARGE = '$sellCharge'";
 	$sql .= ",DEL = '$del'";
 	$sql .= ",DRAWING = '$drawing'";
-	$sql .= " WHERE ARTICLENO = $articleNo";
+	//<!-- 7/31日 物件管理_仕様書_NO147による修正 -->
+	$sql .= ",UPDT = CURRENT_TIMESTAMP";
+	$sql .= " WHERE ARTICLENO = '$articleNo'";
 
 	return ($sql);
 }
