@@ -32,7 +32,8 @@ function subConst()
 
 	if (!$orderBy) {
 		$orderBy = 'ARTICLENO';
-		$orderTo = 'DESC';
+		//<!-- 8/4日 工事管理_仕様書_NO250 による修正 -->
+		$orderTo = 'ASC';
 	}
 
 	subMenu();
