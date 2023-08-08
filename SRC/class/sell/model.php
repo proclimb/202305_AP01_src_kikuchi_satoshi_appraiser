@@ -84,12 +84,13 @@ function fnSqlSellList($flg, $param)
 //
 function fnSqlSellEdit($sellNo)
 {
-    $select  = "SELECT SEARCHDT,ARTICLE,ADDRESS,STATION,IF(FOOT > 0,FOOT,''),";
+    //<!-- 8/8日 売主物件_仕様書_NO85による修正 -->
+    $select  = "SELECT IF( SEARCHDT > '0000-00-00', DATE_FORMAT( SEARCHDT, '%Y/%m/%d'), '' ) AS SEARCHDT,";
+    $select .= "ARTICLE,ADDRESS,STATION,IF(FOOT > 0,FOOT,''),";
     $select .= "IF(YEARS > 0,YEARS,''),IF(FLOOR > 0,FLOOR,''),IF(AREA > 0,AREA,''),SELLER,IF(PRICE > 0,PRICE,''),NOTE";
     $from = " FROM TBLSELL";
     $where = " WHERE DEL = 1";
     $where .= " AND SELLNO = $sellNo";
-
     return $select . $from . $where;
 }
 
