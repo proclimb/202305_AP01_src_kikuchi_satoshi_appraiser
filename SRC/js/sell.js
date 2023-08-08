@@ -72,7 +72,8 @@ function fnSellEditCheck() {
 		alert('専有面積を入力してください');
 		return;
 	}
-	if (tmp.length > 6 || tmp.match(/[^0-9\.]+/)) {
+	//<!-- 8/8日 売主物件_仕様書_NO167,168による修正 -->
+	if (tmp.length > 0 && !tmp.match(/^(\d{0,3}|\d{0,3}\.\d{0,2})$/)) {
 		alert('専有面積は3桁以内（小数点以下2桁以内）の半角数字で入力してください');
 		return;
 	}
