@@ -101,17 +101,19 @@ function fnGuideMove(muki, articleNo) {
 		tags = "<tr id=\"s" + articleNo + "\">";
 
 		// 物件名の作成
-		tags += "<th>" + $(obj.children()[1]).text() + "</th>";
+		//<!-- 8/9日 案内管理_仕様書_NO93による修正 -->
+		tags += "<td>" + $(obj.children()[1]).html() + "</td>";
 
 		// 部屋番号の作成
-		tags += "<td>" + $(obj.children()[2]).text() + "</td>";
+		//tags += "<td>" + $(obj.children()[2]).text() + "</td>";
 		tags += "<td>" + $(obj.children()[2]).html() + "</td>";
 
 		// 鍵情報の作成
 		tags += "<td>" + $(obj.children()[3]).html() + "</td>";
 
 		// 登録ボタンの作成
-		tags += "<td><input type=\"button\" value=\"&gt;\" /></td>";
+		//<!-- 8/9日 案内管理_仕様書_NO93による修正 -->
+		tags += "<td><input type=\"button\" value=\"&gt;\" onClick=\"fnGuideMove( 'toRight', " + articleNo + " );\" /></td>";
 		tags += "</tr>";
 
 		// 検索側に追加
