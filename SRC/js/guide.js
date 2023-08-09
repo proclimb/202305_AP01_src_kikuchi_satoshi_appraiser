@@ -64,7 +64,8 @@ function fnGuideMove(muki, articleNo) {
 		// 名称の取得
 		var articleName = $(obj.children()[0]).text();
 		var articleRoom = $(obj.children()[1]).text();
-		var articleKey = $(obj.children()[2]).text();
+		//<!-- 8/9日 案内管理_仕様書_NO91による修正 -->
+		var articleKey = $(obj.children()[2]).html();
 
 		// 登録リストに保存(右側に移動)
 		tags = "<tr id=\"r" + articleNo + "\">";
