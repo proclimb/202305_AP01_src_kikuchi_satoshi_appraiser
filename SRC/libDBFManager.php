@@ -66,11 +66,10 @@ function fnSqlFManagerUpdate($fMNo, $name, $room, $note, $del)
 	$sql .= ",NOTE = '$note'";
 	$sql .= ",UPDT = CURRENT_TIMESTAMP";
 	$sql .= ",DEL = '$del'";
-	$sql .= " WHERE FMNO = $fMNo";
+	$sql .= " WHERE FMNO = '$fMNo'";
 
 	return ($sql);
 }
-
 
 
 //
@@ -94,7 +93,8 @@ function fnSqlFManagerInsert($fMNo, $name, $room, $note, $del)
 function fnSqlFManagerDelete($fMNo)
 {
 	$sql  = "UPDATE TBLFM";
-	$sql .= " SET DEL = 0";
+	//<!-- 8/10日 案内管理_仕様書_NO99による修正 -->
+	$sql .= " SET DEL = -1";
 	$sql .= ",UPDT = CURRENT_TIMESTAMP";
 	$sql .= " WHERE FMNO = '$fMNo'";
 
