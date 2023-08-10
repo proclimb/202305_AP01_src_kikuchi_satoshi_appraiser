@@ -7,20 +7,21 @@ function fnFManagerEditCheck() {
 		alert('物件名を入力してください');
 		return;
 	}
-	if (tmp.length > 50) {
-		alert('物件名は50文字以内で入力してください');
+	//<!-- 8/10日 案内管理_仕様書_NO122～124による修正 -->
+	if (tmp.length > 100) {
+		alert('物件名は100文字以内で入力してください');
 		return;
 	}
 
 	tmp = form.room.value;
-	if (tmp.length > 50) {
-		alert('部屋は50文字以内で入力してください');
+	if (tmp.length > 100) {
+		alert('部屋は100文字以内で入力してください');
 		return;
 	}
 
 	tmp = form.note.value;
-	if (tmp.length > 100) {
-		alert('備考は100文字以内で入力してください');
+	if (tmp.length > 200) {
+		alert('備考は200文字以内で入力してください');
 		return;
 	}
 
