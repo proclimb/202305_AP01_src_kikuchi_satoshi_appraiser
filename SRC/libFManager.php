@@ -16,7 +16,7 @@ function subFManager()
 	$orderBy = $_REQUEST['orderBy'];
 	$orderTo = $_REQUEST['orderTo'];
 	$sPage   = $_REQUEST['sPage'];
-
+	
 	if ($sDel == '') {
 		$sDel = 1;
 	}
@@ -498,8 +498,8 @@ function subFManagerViewEdit()
 				</tr>
 			</table>
 
-			<a href="javascript:fnFManagerViewEditCheck();"><img src="./images/<?php print $btnImage; ?>" /></a>　
-			<a href="javascript:form.act.value='fManagerView';form.submit();"><img src="./images/btn_return.png" /></a>　
+			<a href="javascript:fnFManagerViewEditCheck();"><img src="./images/<?php print $btnImage; ?>" /></a>
+			<a href="javascript:form.act.value='fManagerView';form.submit();"><img src="./images/btn_return.png" /></a>
 			<?php
 			if ($pdfNo) {
 			?>
@@ -553,15 +553,15 @@ function subFManagerViewEditComplete()
 		}
 	}
 
+	//<!-- 8/10日 案内管理_仕様書_NO104による修正 -->
 	if ($_FILES['pdfFile']['tmp_name']) {
-		move_uploaded_file($_FILES['pdfFile']['tmp_name'], './pdfs/' . $pdfNo . '.pdf');
+		$pdfNoTmp=substr('0000000000' . $pdfNo, -10);
+		move_uploaded_file($_FILES['pdfFile']['tmp_name'], './pdfs/' . $pdfNoTmp . '.pdf');
 	}
 
 	$_REQUEST['act'] = 'fManagerView';
 	subFManagerView();
 }
-
-
 
 
 //
