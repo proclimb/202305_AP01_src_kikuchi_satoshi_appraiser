@@ -44,7 +44,8 @@ function subFTitleView($param)
                         </tr>
                 <?php
                     }
-                    $i = ($i + 1) % 2;
+                    //<!-- 8/15日 タイトル管理_仕様書_NO78による修正(エラー発見による修正) -->
+                    //$i = ($i + 1) % 2;
                 }
                 ?>
             </table>
@@ -110,7 +111,8 @@ function subFTitleItemView($param)
                         </tr>
                 <?php
                     }
-                    $i = ($i + 1) % 2;
+                    //<!-- 8/15日 タイトル管理_仕様書_NO78による修正(エラー発見による修正) -->
+                    //$i = ($i + 1) % 2;
                 }
                 ?>
             </table>
@@ -183,8 +185,9 @@ function subFTitleItemEditView($param)
         <input type="hidden" name="DocNo" value="<?php print $param["DocNo"]; ?>" />
         <input type="hidden" name="sDocNo" value="<?php print $param["sDocNo"]; ?>" />
         <input type="hidden" name="sClassNo" value="<?php print $param["sClassNo"]; ?>" />
-        <input type="hidden" name="orderBy" value="<?php print $orderBy; ?>" />
-        <input type="hidden" name="orderTo" value="<?php print $orderTo; ?>" />
+        <!-- 8/15日 タイトル管理_仕様書_NO78による修正(エラー発見による修正) -->
+        <input type="hidden" name="orderBy" value="<?php print $param["orderBy"]; ?>" />
+        <input type="hidden" name="orderTo" value="<?php print $param["orderTo"]; ?>" />
 
         <div class="list">
             <table border="0" cellpadding="5" cellspacing="1">

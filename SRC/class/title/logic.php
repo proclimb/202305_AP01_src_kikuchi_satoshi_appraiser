@@ -188,13 +188,15 @@ function subFTitleDelete()
             //<!-- 8/15日 タイトル管理_仕様書_NO73による修正 -->
             $result = mysqli_query($conn, $sql);
         }
+        //<!-- 8/15日 タイトル管理_仕様書_NO78による修正 -->
+        subTitlePage0();
     } else {
         $sql = fnSqlFTitleDelete($DocNo);
         $res = mysqli_query($conn, $sql);
+        subTitlePage1();
     }
-
-    $_REQUEST['act'] = 'fTitleSearch';
-    subFTitle();
+    //$_REQUEST['act'] = 'fTitleSearch';
+    //subFTitle();
 }
 
 //
