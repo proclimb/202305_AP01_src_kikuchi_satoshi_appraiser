@@ -87,7 +87,8 @@ function subFTitleEditComplete()
     $param["classNo"] = mysqli_real_escape_string($param["conn"], $_REQUEST['classNo']);
     $param["seqNo"] = mysqli_real_escape_string($param["conn"], $_REQUEST['seqNo']);
     $param["name"] = mysqli_real_escape_string($param["conn"], $_REQUEST['name']);
-    $param["sClassNo"] = mysqli_real_escape_string($conn, $_REQUEST['sClassNo']);
+    //<!-- 8/15日 タイトル管理_仕様書_NO73による修正 -->
+    $param["sClassNo"] = mysqli_real_escape_string($param["conn"], $_REQUEST['sClassNo']);
 
     $ErrClassNo = subFTitleRepetition($param["classNo"], $param["DocNo"]);
 
@@ -184,7 +185,8 @@ function subFTitleDelete()
         $res = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($res)) {
             $sql = fnSqlFTitleDelete($row['DOCNO']);
-            $result = mysqil_query($conn, $sql);
+            //<!-- 8/15日 タイトル管理_仕様書_NO73による修正 -->
+            $result = mysqli_query($conn, $sql);
         }
     } else {
         $sql = fnSqlFTitleDelete($DocNo);
